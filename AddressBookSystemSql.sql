@@ -34,3 +34,6 @@ Select * From AddressBook Where City='Parchur' or State='TS'
 Select Count(City) as 'NumberOfContacts' from AddressBook Where City='Parchur' Group by City
 
 Select Count(State) as 'NumberOfContacts' from AddressBook Where State='AP' Group by State
+
+/* ASC for Ascending order And DESC for Descending order */
+Select * From AddressBook Where City='Parchur' Order by FirstName ASC
