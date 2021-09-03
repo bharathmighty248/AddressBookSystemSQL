@@ -28,3 +28,5 @@ Select * From AddressBook
 Update AddressBook Set Address='Karamchedu' Where FirstName='Bharath'
 
 Delete from AddressBook Where FirstName='Nagu'
+
+Select * From AddressBook Where City='Parchur' or State='TS'
