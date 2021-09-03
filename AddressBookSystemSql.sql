@@ -1,7 +1,9 @@
+/*UC1*/
 Create Database AddressBookSystem
 
 Use AddressBookSystem
 
+/*UC2*/
 Create Table AddressBook(
 ContactId int identity(1,1) Primary Key,
 FirstName varchar(20) not null,
@@ -16,6 +18,7 @@ Email varchar(50)not null
 
 Select * From AddressBook
 
+/*UC3*/
 Insert into AddressBook (FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email) values('Bharath', 'Pasumarthi', 'Kunkalamarru', 'Karamchedu', 'AP', '523168', '1111111111', 'bharath@gmail.com')
 Insert into AddressBook (FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email) values('Sriram', 'Suragani', 'Parchur', 'Parchur', 'AP', '523169', '2222222222', 'sriram@gmail.com')
 Insert into AddressBook (FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email) values('Nagoor', 'Noorbasha', 'Nagulapalem', 'Parchur', 'AP', '523169', '3333333333', 'nagoor@gmail.com')
@@ -25,19 +28,24 @@ Insert into AddressBook (FirstName,LastName,Address,City,State,Zip,PhoneNumber,E
 
 Select * From AddressBook
 
+/*UC4*/
 Update AddressBook Set Address='Karamchedu' Where FirstName='Bharath'
 
+/*UC5*/
 Delete from AddressBook Where FirstName='Nagu'
 
+/*UC6*/
 Select * From AddressBook Where City='Parchur' or State='TS'
 
+/*UC7*/
 Select Count(City) as 'NumberOfContacts' from AddressBook Where City='Parchur' Group by City
-
 Select Count(State) as 'NumberOfContacts' from AddressBook Where State='AP' Group by State
 
+/*UC8*/
 /* ASC for Ascending order And DESC for Descending order */
 Select * From AddressBook Where City='Parchur' Order by FirstName ASC
 
+/*UC9*/
 Alter Table AddressBook 
 Add AddressBookName varchar(50), AddressBookType varchar(50)
 
@@ -47,11 +55,14 @@ Update AddressBook set AddressBookName='Friend AddressBook', AddressBookType='Fr
 Update AddressBook set AddressBookName='Friend AddressBook', AddressBookType='Friend' Where FirstName='Nagoor'
 Update AddressBook set AddressBookName='Professional AddressBook', AddressBookType='Professional' Where FirstName='Sai'
 
+/*UC10*/
 Select Count(AddressBookType)As 'NumberOfContacts' From AddressBook Where AddressBookType='Friend'
 
+/*UC11*/
 Insert into AddressBook values ('SaiLokesh', 'Motupalli', 'Nagulapalem', 'Parchur', 'AP', '523169', '7777777777', 'sailokesh@gmail.com', 'Family AddressBook', 'Family'),
 ('SaiLokesh', 'Motupalli', 'Nagulapalem', 'Parchur', 'AP', '523169', '7777777777', 'sailokesh@gmail.com', 'Friend AddressBook', 'Friend')
 
+/*UC12*/
 Create Table Address
 (
 AddressId int not null Identity(1,1) Primary key,
@@ -105,3 +116,29 @@ Select * From Contact
 
 Select * From Contact c, Address a, ContactType ct
 Where c.AddressId=a.AddressId And c.ContactTypeId=ct.ContactTypeId
+
+/*UC13*/
+Select * From Contact
+Join Address                                                          /*UC6*/
+on Contact.AddressId=Address.AddressId
+Where City='Parchur' or State='TS'
+
+Select Count(FirstName) as 'NumberOfContacts' from Contact
+Join Address 
+on Contact.AddressId=Address.AddressId 
+Where City='Parchur' Group by City
+                                                                       /*UC7*/
+Select Count(FirstName) as 'NumberOfContacts' from Contact
+Join Address 
+on Contact.AddressId=Address.AddressId
+Where State='AP' Group by State
+
+Select * From Contact 
+Join Address 
+on Contact.AddressId=Address.AddressId                                 /*UC8*/
+Where City='Parchur' Order by FirstName ASC
+
+Select Count(FirstName) as 'NumberOfContacts' from Contact
+Join ContactType 
+on Contact.ContactTypeId=ContactType.ContactTypeId                    /*UC10*/
+Where ContactTypeName='Friends' Group by ContactTypeName
