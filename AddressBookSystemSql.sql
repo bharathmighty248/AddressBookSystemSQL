@@ -30,3 +30,7 @@ Update AddressBook Set Address='Karamchedu' Where FirstName='Bharath'
 Delete from AddressBook Where FirstName='Nagu'
 
 Select * From AddressBook Where City='Parchur' or State='TS'
+
+Select Count(City) as 'NumberOfContacts' from AddressBook Where City='Parchur' Group by City
+
+Select Count(State) as 'NumberOfContacts' from AddressBook Where State='AP' Group by State
