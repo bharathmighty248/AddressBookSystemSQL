@@ -15,3 +15,12 @@ Email varchar(50)not null
 )
 
 Select * From AddressBook
+
+Insert into AddressBook (FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email) values('Bharath', 'Pasumarthi', 'Kunkalamarru', 'Karamchedu', 'AP', '523168', '1111111111', 'bharath@gmail.com')
+Insert into AddressBook (FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email) values('Sriram', 'Suragani', 'Parchur', 'Parchur', 'AP', '523169', '2222222222', 'sriram@gmail.com')
+Insert into AddressBook (FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email) values('Nagoor', 'Noorbasha', 'Nagulapalem', 'Parchur', 'AP', '523169', '3333333333', 'nagoor@gmail.com')
+Insert into AddressBook (FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email) values('Sai', 'Undavalli', 'Ameerpet', 'Hyderabad', 'TS', '500018', '4444444444', 'sai@gmail.com')
+Insert into AddressBook (FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email) values('Nagu', 'Naramamidi', 'Chagallu', 'WestGodavari', 'AP', '534342', '5555555555', 'nagu@gmail.com')
+Insert into AddressBook (FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email) values('Rajendra', 'Pasumarthi', 'Kunkalamarru', 'Karamchedu', 'AP', '523168', '6666666666', 'rajendra@gmail.com')
+
+Select * From AddressBook
